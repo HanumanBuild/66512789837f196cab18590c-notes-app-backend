@@ -18,6 +18,11 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.error("Error connecting to MongoDB", err);
 });
 
+// Add the following lines to include the routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/notes', require('./routes/notes'));
+// End of added lines
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
