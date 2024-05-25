@@ -21,10 +21,21 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.error("Error connecting to MongoDB", err);
 });
 
+// Ensure that the auth routes are correctly included and configured
+// Add the following code to include auth routes
+
+// Before the existing code
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 // Add the following lines to include the routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 // End of added lines
+
+// Ensure that the `auth` routes are correctly included and configured.
+// Add the following line to include the auth routes
+// app.use('/api/auth', require('./routes/auth'));
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

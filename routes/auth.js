@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const router = express.Router();
 
+// Ensure the signup route is correctly implemented
 router.post('/signup', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -15,6 +16,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+// Ensure the login route is correctly implemented
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
